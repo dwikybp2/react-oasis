@@ -67,7 +67,7 @@ function CreateCabinForm() {
   const { errors } = formState;
 
   function onSubmit(data) {
-    mutate(data);
+    mutate({ ...data, image: data.image[0] });
   }
 
   function onError(errors) {
@@ -79,13 +79,13 @@ function CreateCabinForm() {
 
       <FormRow label='Cabin Name' error={errors?.name?.message}>
         <Input type="text" id="name" {...register('name', {
-          required: 'THis field is required',
+          required: 'This field is required',
         })} />
       </FormRow>
 
       <FormRow label='Maximum capacity' error={errors?.maxCapacity?.message} >
         <Input type="number" id="maxCapacity" {...register('maxCapacity', {
-          required: 'THis field is required',
+          required: 'This field is required',
           min: {
             value: 1,
             message: 'Capacity should be at leat 1',
@@ -95,7 +95,7 @@ function CreateCabinForm() {
 
       <FormRow label='Regular price' error={errors?.regularPrice?.message} >
         <Input type="number" id="regularPrice" {...register('regularPrice', {
-          required: 'THis field is required',
+          required: 'This field is required',
           min: {
             value: 1,
             message: 'Capacity should be at leat 1',
@@ -105,20 +105,20 @@ function CreateCabinForm() {
 
       <FormRow label='Discount' error={errors?.discount?.message} >
         <Input type="number" id="discount" defaultValue={0} {...register('discount', {
-          required: 'THis field is required',
+          required: 'This field is required',
           validate: (value) => value > getValues().regularPrice || 'Discount should be lest than regular price',
         })} />
       </FormRow>
 
       <FormRow label='Description for website' error={errors?.description?.message} >
         <Textarea type="number" id="description" defaultValue="" {...register('description', {
-          required: 'THis field is required',
+          required: 'This field is required',
         })} />
       </FormRow>
 
       <FormRow label='Cabin photo' error={errors?.image?.message} >
-        <FileInput id="image" accept="image/*" {...register('image', {
-          required: 'THis field is required',
+        <FileInput id="image"  accept="image/*" {...register('image', {
+          required: 'This field is required',
         })} />
       </FormRow>
 
