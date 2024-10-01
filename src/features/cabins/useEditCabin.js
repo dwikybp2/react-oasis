@@ -17,4 +17,6 @@ export function useEditCabin() {
       toast.error(error.message);
     },
   });
+
+  return { isEditing, editCabin };
 }

@@ -18,5 +18,7 @@ export function useCreateCabin() {
       toast.error(error.message);
     },
   });
+
+  return { isCreating, createCabin };
   
 }
